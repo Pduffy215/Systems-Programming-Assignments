@@ -4,7 +4,7 @@ In this assignment, you are going to implement 14 functions in `typelib.c` accor
 
 ## Accepting the Assignment
 
-[Click here to accept this assignment](github.com). Once you accept the invitation, GitHub will create a private repository containing the starter files for the assignment. You will also find an accompanying `README.md`, which is essentially this document you are reading, useful for instructions and further details.
+[Click here to accept this assignment](https://classroom.github.com/a/TXDMeGRS). Once you accept the invitation, GitHub will create a private repository containing the starter files for the assignment. You will also find an accompanying `README.md`, which is essentially this document you are reading, useful for instructions and further details.
 
 ## Assignment File Structure
 
@@ -182,4 +182,5 @@ For late submissions, please refer to syllabus or Canvas website.
 ## Turnin
 
 Go to Canvas, start the quiz, and submit a commit ID as a single line in the submission box.
+
 
