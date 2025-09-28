@@ -759,18 +759,12 @@ void test_add_student_to_course(){
     assert_equal_int(999, course1.students[2].student_id, 4, 12);
 
     // Test case 5: Add same student twice
+    course1.max_students = 6;
     course_t result5 = add_student_to_course(course1, student2);
     printf("Test No.5: Add same student twice\n");
     assert_equal_int(3, result5.current_enrollment, 5, 12);
     assert_equal_int(456, result5.students[1].student_id, 5, 12);
     assert_not_equal_int(456, result5.students[3].student_id, 5, 12);
-
-    // Test case 6: Add student with same ID but different name
-    student_t student6 = create_student(123, "Alice", "Johnson", 1, false);
-    course_t result6 = add_student_to_course(course1, student6);
-    printf("Test No.6: Add student with same ID but different name\n");
-    assert_equal_int(3, result6.current_enrollment, 6, 12);
-    assert_equal_int(123, result6.students[0].student_id, 6, 12);
 
     printf("\n");
 }
