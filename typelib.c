@@ -72,7 +72,6 @@ float letter_to_percentage(letter_grade_t letter) {
         default:
             return -1.0f;
     }
-    return -1.0;
 }
 
 float letter_to_gpa(letter_grade_t letter) {
@@ -106,12 +105,20 @@ float letter_to_gpa(letter_grade_t letter) {
         default:
             return -1.0f;
     }
-    return -1.0;
 }
 
 student_t create_student(int student_id, const char first_name[], const char last_name[], int year_level, bool is_suspended) {
-    // TODO: Create a new student with the given parameters
-    student_t student = {0}; // TODO :: Initialize / change this to your liking
+    student_t student = {0};
+    student.student_id = student_id;    //Set all parameters of the student
+    student.year_level = year_level;
+    student.is_suspended = is_suspended;
+
+    strncpy(student.first_name, first_name, MAX_FIRST_NAME_LENGTH - 1);
+    student.first_name[MAX_FIRST_NAME_LENGTH - 1] = '\0';               //Copy the students first name but make sure the                                                                        //Null terminator has space
+
+    strncpy(student.last_name, last_name, MAX_LAST_NAME_LENGTH - 1);  //Copy Last Name using same method
+    student.last_name[MAX_LAST_NAME_LENGTH - 1] = '\0';
+
     return student;
 }
 
