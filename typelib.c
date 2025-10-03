@@ -41,7 +41,37 @@ letter_grade_t percentage_to_letter(float percentage) {
 }
 
 float letter_to_percentage(letter_grade_t letter) {
-    // TODO: Convert letter grade to middle percentage value
+    switch (letter) {
+        case GRADE_A_PLUS:
+            return 98.5f;  
+        case GRADE_A:
+            return 95.0f;  
+        case GRADE_A_MINUS:    //Use switch for each case of letter grade and return the appropriate value
+            return 91.5f;  
+        case GRADE_B_PLUS:
+            return 88.5f;  
+        case GRADE_B:
+            return 85.0f;  
+        case GRADE_B_MINUS:
+            return 81.5f;  
+        case GRADE_C_PLUS:
+            return 78.5f;  
+        case GRADE_C:
+            return 75.0f;  
+        case GRADE_C_MINUS:
+            return 71.5f;  
+        case GRADE_D_PLUS:
+            return 68.5f;  
+        case GRADE_D:
+            return 65.0f;  
+        case GRADE_D_MINUS:
+            return 61.5f;  
+        case GRADE_F:
+            return 30.0f; 
+        case GRADE_INVALID:
+        default:
+            return -1.0f;
+    }
     return -1.0;
 }
 
