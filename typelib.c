@@ -141,7 +141,16 @@ bool is_course_at_capacity(course_t course) {
 }
 
 course_t add_student_to_course(course_t course, student_t student) {
-    // TODO: Add student to course's student array
+    if (is_course_at_capacity(course)) {
+    	return course;       //Check if course is at capacity
+}
+    for (int i = 0; i < course.current_enrollment; i++) {
+	    if (course.students[i].student_id == student.student_id) { //loop through students array to check if  
+		    return course;                                     //student is already in it
+	    }
+    }
+    course.students[course.current_enrollment] = student;
+    course.current_enrollment++;   //add student to students array at the right index and Increment enrollment
     return course;
 }
 
