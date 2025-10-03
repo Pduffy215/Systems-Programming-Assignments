@@ -261,6 +261,10 @@ int find_most_popular_course(course_t courses[], int num_courses) {
 }
 
 int find_student_in_course(course_t course, int student_id) {
-    // TODO: Find student in course by student ID
-    return -1;
+    for (int i = 0; i < course.current_enrollment; i++) {       //loop through all students in course
+	    if (course.students[i].student_id == student_id) {  //check if they have matching ids
+		    return i;              //if they match return the index
+	    }
+    }
+    return -1;  //if no matches return -1
 }
