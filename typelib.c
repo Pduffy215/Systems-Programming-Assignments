@@ -219,8 +219,15 @@ float calculate_class_average(grade_t grades[], int num_grades, student_t studen
 }
 
 int count_students_by_year(student_t students[], int num_students, int year_level) {
-    // TODO: Count enrolled students in specific year level
-    return 0;
+    int count = 0; //Initialize count to hold the value
+    for (int i = 0; i < num_students; i++) {   
+	    if (!students[i].is_suspended) {   //loop through students if the student isn't suspended
+		  if (students[i].year_level == year_level) { //if student year level equals the year
+			  count++;                          //level increment count
+		  }
+	    }
+    }
+    return count;
 }
 
 int calculate_total_credit_hours(course_t course) {
