@@ -242,8 +242,22 @@ int calculate_total_credit_hours(course_t course) {
 }
 
 int find_most_popular_course(course_t courses[], int num_courses) {
-    // TODO: Find course with highest enrollment
-    return -1;
+    if (num_courses <= 0) {
+	    return -1;    //If no courses return -1
+    }
+    int max_course = -1;
+    int max_enrollment = 0;  //Initialize max course and enrollment 
+
+    for (int i = 0; i < num_courses; i++) { //loop through courses and if corrent enrollment is greater 
+	    if (courses[i].current_enrollment > max_enrollment) { //than current max
+		    max_enrollment = courses[i].current_enrollment; //make max equal to this
+		    max_course = i;  //Change max course
+	    }
+    }
+    if (max_enrollment == 0) {
+	    return -1;   //if max enrollment is 0 return -1
+    }
+    return max_course;
 }
 
 int find_student_in_course(course_t course, int student_id) {
