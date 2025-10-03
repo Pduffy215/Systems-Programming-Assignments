@@ -76,7 +76,36 @@ float letter_to_percentage(letter_grade_t letter) {
 }
 
 float letter_to_gpa(letter_grade_t letter) {
-    // TODO: Convert letter grade to GPA value (4.0 scale)
+    switch (letter) {
+        case GRADE_A_PLUS:
+        case GRADE_A:
+            return 4.0f;
+        case GRADE_A_MINUS:  //A and A plus are both 4.0 so return same value
+            return 3.7f;
+        case GRADE_B_PLUS:
+            return 3.3f;   //Use switch again for all the cases 
+        case GRADE_B:
+            return 3.0f;
+        case GRADE_B_MINUS:
+            return 2.7f;
+        case GRADE_C_PLUS:
+            return 2.3f;
+        case GRADE_C:
+            return 2.0f;
+        case GRADE_C_MINUS:
+            return 1.7f;
+        case GRADE_D_PLUS:
+            return 1.3f;
+        case GRADE_D:
+            return 1.0f;
+        case GRADE_D_MINUS:
+            return 0.7f;
+        case GRADE_F:
+            return 0.0f;
+        case GRADE_INVALID:
+        default:
+            return -1.0f;
+    }
     return -1.0;
 }
 
