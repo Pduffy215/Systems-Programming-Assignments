@@ -155,8 +155,27 @@ course_t add_student_to_course(course_t course, student_t student) {
 }
 
 float calculate_student_average(grade_t grades[], int num_grades, int student_id) {
-    // TODO: Calculate average percentage grade for a specific student
-    return -1.0;
+    if (num_grades <= 0) {  //if there are 0 grades return -1
+	    return -1.0f;
+    }
+    float total = 0.0f;   //Initialize total for total grade
+    int count = 0;        //Initialize count for number of grades
+
+    for (int i = 0; i < num_grades; i++) {
+	    if (grades[i].student_id == student_id) {
+		    if (grades[i].is_percentage) {   //if the student id matches and if its a percentage
+			    total += grades[i].grade.percentage;  //add grade to total using the Union where it is kept
+		    } else {                                    //if grade isnt a percentage then convert it from letter
+			    total += letter_to_percentage(grades[i].grade.letter);     //to percentage then add total
+		 }
+		    count ++;       //Increment count by one
+	    } 
+    }
+    if (count == 0) {
+	    return -1.0f; //if count is 0 return -1
+    }
+    
+    return total/count;   //return total over count which is the average grade
 }
 
 int find_top_student(grade_t grades[], int num_grades, student_t students[], int num_students) {
