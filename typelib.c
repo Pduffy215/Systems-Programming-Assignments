@@ -231,8 +231,14 @@ int count_students_by_year(student_t students[], int num_students, int year_leve
 }
 
 int calculate_total_credit_hours(course_t course) {
-    // TODO: Calculate total credit hours for enrolled students
-    return 0;
+    int count = 0;
+    for (int i = 0; i < course.current_enrollment; i++) { //loop through students to and if student
+	    if (!course.students[i].is_suspended) {       //isn't suspended Increment count
+		    count++;
+	    }
+    }
+                                          //return course credits times count
+    return course.credits * count;
 }
 
 int find_most_popular_course(course_t courses[], int num_courses) {
