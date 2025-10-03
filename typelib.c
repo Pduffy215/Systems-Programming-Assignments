@@ -123,8 +123,16 @@ student_t create_student(int student_id, const char first_name[], const char las
 }
 
 course_t create_course(const char course_code[], const char course_name[], int credits, int max_students) {
-    // TODO: Create a new course with the given parameters
-    course_t course = {0}; // TODO :: Initialize / change this to your liking
+    course_t course = {0}; 
+    course.credits = credits;
+    course.max_students = max_students;   //Set all parameters of the Course
+
+    strncpy(course.course_code, course_code, MAX_COURSE_CODE_LENGTH - 1); //Copy the Strings with Null terminator
+    course.course_code[MAX_COURSE_CODE_LENGTH - 1] = '\0';
+
+    strncpy(course.course_name, course_name, MAX_COURSE_NAME_LENGTH - 1);
+    course.course_name[MAX_COURSE_NAME_LENGTH - 1] = '\0';
+
     return course;
 }
 
