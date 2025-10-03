@@ -137,8 +137,7 @@ course_t create_course(const char course_code[], const char course_name[], int c
 }
 
 bool is_course_at_capacity(course_t course) {
-    // TODO: Check if course enrollment equals max capacity
-    return false;
+    return course.current_enrollment >= course.max_students; //Returns true is enrollment is at or above capacity
 }
 
 course_t add_student_to_course(course_t course, student_t student) {
