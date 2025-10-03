@@ -196,8 +196,26 @@ int find_top_student(grade_t grades[], int num_grades, student_t students[], int
 }
 
 float calculate_class_average(grade_t grades[], int num_grades, student_t students[], int num_students) {
-    // TODO: Calculate average grade for entire class
-    return -1.0;
+    if (num_grades <=0) {
+	    return -1.0f;
+    }                         //if number of grades is 0 return -1
+    float total_avg = 0.0f;
+    int count = 0;          //Initialize total avg and count to hold the values
+
+    for (int i = 0; i < num_students; i++) {    //loop through students and if they arent suspended
+	    if (!students[i].is_suspended) {
+		    float avg = calculate_student_average(grades, num_grades, students[i].student_id);
+		    if (avg >= 0.0f) {                 //calculate they're average grade
+			    total_avg += avg;          //If that average is valid add it to total and increment count
+			    count++;
+		    }
+	    }
+    }
+    if (count == 0) {  //if count doesn't equal 0 return total/count
+	    return -1.0f;
+    }
+
+    return total_avg/count;
 }
 
 int count_students_by_year(student_t students[], int num_students, int year_level) {
