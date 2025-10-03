@@ -8,8 +8,36 @@ Please read the comments in typelib.h before you start working on this file.
 */
 
 letter_grade_t percentage_to_letter(float percentage) {
-    // TODO: Convert percentage grade to letter grade
-    return GRADE_INVALID;
+    if (percentage < 0.0f || percentage > 100.0f) {
+	    return GRADE_INVALID;         //If percentage is greater isnt between 0 and 100 return GRADE_INVALID
+    }
+    if (percentage >= 97.0f) {
+	    return GRADE_A_PLUS;
+    } else if (percentage >= 93.0f) {
+	    return GRADE_A;
+    } else if (percentage >= 90.0f) {
+	    return GRADE_A_MINUS;
+    } else if (percentage >= 87.0f) {
+	    return GRADE_B_PLUS;          //Use if and else if statements for all the rest of the percentages
+    } else if (percentage >= 83.0f) {
+            return GRADE_B;
+    } else if (percentage >= 80.0f) {
+            return GRADE_B_MINUS;
+    } else if (percentage >= 77.0f) {
+            return GRADE_C_PLUS;
+    } else if (percentage >= 73.0f) {
+            return GRADE_C;
+    } else if (percentage >= 70.0f) {
+            return GRADE_C_MINUS;
+    } else if (percentage >= 67.0f) {
+            return GRADE_D_PLUS;
+    } else if (percentage >= 63.0f) {
+            return GRADE_D;
+    } else if (percentage >= 60.0f) {
+            return GRADE_D_MINUS;
+    } else {
+	    return GRADE_F;
+    }
 }
 
 float letter_to_percentage(letter_grade_t letter) {
