@@ -179,8 +179,20 @@ float calculate_student_average(grade_t grades[], int num_grades, int student_id
 }
 
 int find_top_student(grade_t grades[], int num_grades, student_t students[], int num_students) {
-    // TODO: Find student with highest average grade
-    return -1;
+    float highest_avg = -1.0f;
+    int top_student_id = -1;  //Initialize ihgest avg and top student id to hold values
+
+    for (int i = 0; i < num_students; i++) {
+	    if (!students[i].is_suspended) {  //loop through students and if student isn't suspended
+		    float avg = calculate_student_average(grades, num_grades, students[i].student_id);
+		    if (avg > highest_avg) {   //calculate their average grade and if its the highest
+			    highest_avg = avg;  //change the highest avg to theirs and id to theirs
+			    top_student_id = students[i].student_id;
+		    }
+	    }
+    }
+
+    return top_student_id;
 }
 
 float calculate_class_average(grade_t grades[], int num_grades, student_t students[], int num_students) {
